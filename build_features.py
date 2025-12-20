@@ -78,7 +78,7 @@ for col in predicted_columns:
 # Principal component analysis PCA
 # --------------------------------------------------------------
 
-df_lowpass.drop("duration", axis=1, inplace=True)
+# df_lowpass.drop("duration", axis=1, inplace=True)
 df_pca = df_lowpass.copy()
 PCA = PrincipalComponentAnalysis()
 
