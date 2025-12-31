@@ -54,7 +54,7 @@ duration_df.iloc[1] / 10
 df_lowpass = df.copy()
 LowPass = LowPassFilter()
 
-fs = 1000 / 200 
+fs = 1000 / 200 # we converted gyro and acc to 5 Hz initally.
 cutoff = 1
 
 df_lowpass = LowPass.low_pass_filter(df_lowpass, "acc_y", fs , cutoff)
@@ -83,6 +83,7 @@ df_pca = df_lowpass.copy()
 PCA = PrincipalComponentAnalysis()
 
 pc_values = PCA.determine_pc_explained_variance(df_pca, predicted_columns)
+# array([0.58761843, 0.26552069, 0.06124678, 0.05505608, 0.0204431 , 0.01011492])
 
 plt.figure(figsize=(10, 10))
 plt.plot(range(1, len(predicted_columns) + 1), pc_values)

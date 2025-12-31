@@ -8,7 +8,6 @@ import itertools
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 
-# Plot settings
 plt.style.use("fivethirtyeight")
 plt.rcParams["figure.figsize"] = (20, 5)
 plt.rcParams["figure.dpi"] = 100
@@ -199,7 +198,7 @@ for i, f in zip(range(len(possible_feature_sets)), feature_names):
     score_df = pd.concat([score_df, new_scores])
 
 # --------------------------------------------------------------
-# Create a grouped bar plot to compare the results
+# Create a grouped bar plot tof compare the results
 # --------------------------------------------------------------
 
 score_df.sort_values(by="accuracy", ascending=False)

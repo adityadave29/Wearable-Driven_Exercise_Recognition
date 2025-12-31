@@ -14,6 +14,7 @@ df = pd.read_pickle("data_resampled.pkl")
 
 set_df = df[df["set"] == 1]
 plt.plot(set_df["acc_y"])
+plt.plot(set_df["gyr_y"])
 
 # --------------------------------------------------------------
 # Plot all exercises
@@ -25,6 +26,7 @@ for label in df["label"].unique():
     plt.plot(subset["acc_y"].reset_index(drop=True), label=label)
     plt.legend()
     plt.show()
+    
     
 for label in df["label"].unique():
     subset = df[df["label"] == label]
@@ -69,6 +71,21 @@ ax.set_xlabel("samples")
 plt.legend()
 plt.show()
 
+participant_df = (
+    df.query("label == 'bench'")
+      .sort_values("participant")
+      .groupby("participant")
+      .head(100)             
+      .reset_index(drop=True)
+)
+
+fig, ax = plt.subplots()
+participant_df.groupby("participant")["acc_y"].plot(ax=ax)
+ax.set_ylabel("acc_y")
+ax.set_xlabel("samples")
+plt.legend()
+plt.show()
+
 # --------------------------------------------------------------
 # Plot multiple axis
 # --------------------------------------------------------------
@@ -87,7 +104,7 @@ plt.show()
 # --------------------------------------------------------------
 # Create a loop to plot all combinations per sensor
 # --------------------------------------------------------------
-
+# Iterating over unique labels and participants
 labels = df["label"].unique()
 participants = df["participant"].unique()
 
