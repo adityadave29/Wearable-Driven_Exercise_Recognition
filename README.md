@@ -160,7 +160,7 @@ The combination of signal processing, feature engineering, and machine learning 
 | Model | Feature Set | Accuracy |
 |------|------------|----------|
 | NN | Feature Set 4 | 0.992589 |
-| XG | Feature Set 4 | 0.991700 |
+| XG | Feature Set 4 | 0.992589 |
 | RF | Feature Set 3 | 0.989810 |
 | RF | Feature Set 4 | 0.988421 |
 | RF | Selected Features | 0.978694 |
